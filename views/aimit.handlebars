@@ -1,2 +1,181 @@
-<h1 class="title">Let's AIM it!!!</h1>
+<body
+  onmouseup="mouseHandler(event)"
+  onload="startHorizontalCursorMovement();initPowerBar(10,10);hidePowerBar();initWindIndicator(45);generateAngle()"
+  onkeydown="startVerticalCursorMovement()"
+  onkeyup="stopVerticalCursorMovement()"
+>
+  <div id="gameBox"><div id="windIndicator"><div
+        id="shadow0"
+        class="windCell"
+        style="top: 16px; left: 46px;"
+      ></div><div
+        id="shadow1"
+        class="windCell"
+        style="top: 17px; left: 44px;"
+      ></div><div
+        id="shadow2"
+        class="windCell"
+        style="top: 18px; left: 42px;"
+      ></div><div
+        id="shadow3"
+        class="windCell"
+        style="top: 19px; left: 40px;"
+      ></div><div
+        id="shadow4"
+        class="windCell"
+        style="top: 20px; left: 38px;"
+      ></div><div
+        id="shadow5"
+        class="windCell"
+        style="top: 21px; left: 36px;"
+      ></div><div
+        id="shadow6"
+        class="windCell"
+        style="top: 21px; left: 33px;"
+      ></div><div
+        id="shadow7"
+        class="windCell"
+        style="top: 22px; left: 31px;"
+      ></div><div
+        id="shadow8"
+        class="windCell"
+        style="top: 23px; left: 29px;"
+      ></div><div
+        id="shadow9"
+        class="windCell"
+        style="top: 24px; left: 27px;"
+      ></div><div
+        id="shadow10"
+        class="windCell"
+        style="top: 25px; left: 25px;"
+      ></div><div
+        id="shadow11"
+        class="windCell"
+        style="top: 26px; left: 23px;"
+      ></div><div
+        id="shadow12"
+        class="windCell"
+        style="top: 27px; left: 21px;"
+      ></div><div
+        id="shadow13"
+        class="windCell"
+        style="top: 28px; left: 19px;"
+      ></div><div
+        id="shadow14"
+        class="windCell"
+        style="top: 29px; left: 17px;"
+      ></div><div
+        id="shadow15"
+        class="windCell"
+        style="top: 29px; left: 14px;"
+      ></div><div
+        id="shadow16"
+        class="windCell"
+        style="top: 30px; left: 12px;"
+      ></div><div
+        id="shadow17"
+        class="windCell"
+        style="top: 31px; left: 10px;"
+      ></div><div
+        id="shadow18"
+        class="windCell"
+        style="top: 32px; left: 8px;"
+      ></div><div
+        id="shadow19"
+        class="windCell"
+        style="top: 33px; left: 6px;"
+      ></div><div
+        id="cell0"
+        class="windCell"
+        style="top: 16px; left: 46px; background-position: -9px 0px;"
+      ></div><div
+        id="cell1"
+        class="windCell"
+        style="top: 17px; left: 44px; background-position: -9px 0px;"
+      ></div><div
+        id="cell2"
+        class="windCell"
+        style="top: 18px; left: 42px; background-position: -9px 0px;"
+      ></div><div
+        id="cell3"
+        class="windCell"
+        style="top: 19px; left: 40px; background-position: -9px 0px;"
+      ></div><div
+        id="cell4"
+        class="windCell"
+        style="top: 20px; left: 38px; background-position: -9px 0px;"
+      ></div><div
+        id="cell5"
+        class="windCell"
+        style="top: 21px; left: 36px; background-position: -18px 0px;"
+      ></div><div
+        id="cell6"
+        class="windCell"
+        style="top: 21px; left: 33px; background-position: -27px 0px;"
+      ></div><div
+        id="cell7"
+        class="windCell"
+        style="top: 22px; left: 31px; background-position: -36px 0px;"
+      ></div><div
+        id="cell8"
+        class="windCell"
+        style="top: 23px; left: 29px; background-position: -9px 0px;"
+      ></div><div
+        id="cell9"
+        class="windCell"
+        style="top: 24px; left: 27px; background-position: -18px 0px;"
+      ></div><div
+        id="cell10"
+        class="windCell"
+        style="top: 25px; left: 25px; background-position: -27px 0px;"
+      ></div><div
+        id="cell11"
+        class="windCell"
+        style="top: 26px; left: 23px; background-position: -36px 0px;"
+      ></div><div
+        id="cell12"
+        class="windCell"
+        style="top: 27px; left: 21px; background-position: -9px 0px;"
+      ></div><div
+        id="cell13"
+        class="windCell"
+        style="top: 28px; left: 19px; background-position: -18px 0px;"
+      ></div><div
+        id="cell14"
+        class="windCell"
+        style="top: 29px; left: 17px; background-position: -27px 0px;"
+      ></div><div
+        id="cell15"
+        class="windCell"
+        style="top: 29px; left: 14px; background-position: -36px 0px;"
+      ></div><div
+        id="cell16"
+        class="windCell"
+        style="top: 30px; left: 12px; background-position: -9px 0px;"
+      ></div><div
+        id="cell17"
+        class="windCell"
+        style="top: 31px; left: 10px; background-position: -18px 0px;"
+      ></div><div
+        id="cell18"
+        class="windCell"
+        style="top: 32px; left: 8px; background-position: -27px 0px;"
+      ></div><div
+        id="cell19"
+        class="windCell"
+        style="top: 33px; left: 6px; background-position: -36px 0px;"
+      ></div></div><div id="darts"></div><div
+      id="power-back"
+      style="visibility: hidden; top: 10px; left: 10px;"
+    ><div
+        id="power"
+        style="visibility: hidden; background-position: 0px -139px; top: 140px; height: 11px;"
+      ></div></div><div
+      id="handCursor"
+      style="background-position: 0px 0px; left: 380px; top: 350px;"
+    ></div><div id="scoreA"></div><div id="dart">&nbsp;</div></div>
+
+</body>
 <script src="/public/js/aimit.js"></script>
+
+<script src="/public/js/main.js"></script>

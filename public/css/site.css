@@ -1,5 +1,10 @@
 body {
-  background: url("/public/images/home-background.jpeg") no-repeat center top;
+  background: url(/public/images/home-background.jpeg) no-repeat center center
+    fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 .card-body {
@@ -54,4 +59,59 @@ body {
   background: #0000006b;
   padding: 1% 0px;
   color: white;
+}
+
+.object-pos {
+  position: absolute;
+  transform: translate(3px, 3px);
+  top: 10%;
+  left: 35%;
+}
+
+.wrapper {
+  width: 800px;
+  height: 600px;
+  transform: translate(2%, 4%);
+}
+.btn {
+  position: absolute;
+  top: 615px;
+  right: -8px;
+  background: #000;
+  border-bottom: 2px solid #fff;
+}
+
+.btn a {
+  display: block;
+  padding: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+/* ------------------------------------------- *\
+	Background Image
+\* ------------------------------------------- */
+.bg-image {
+  display: block;
+  position: absolute;
+  width: 50%;
+}
+/* ------------------------------------------- *\
+	Drawing
+\* ------------------------------------------- */
+.drawing {
+  position: relative;
+}
+.drawing > * {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cursor {
+  position: fixed;
+  pointer-events: none;
+  mix-blend-mode: difference;
+  z-index: 999;
+
+  transition: transform 0.2s;
 }
