@@ -28,6 +28,8 @@ var SEGMENT_SIZE = Math.PI / 10.0;
 var SEGMENTS = [10, 21, 77, 90, 141, 154];
 var SEGMENT_NAMES = ["50", "25", "value", "tripple", "value", "double", "out"];
 
+let counter = 0;
+
 var angleOffset = Math.round(
   -Math.atan2(
     BOARD_CENTER_Y - OFFSET_POINT_Y,
@@ -53,6 +55,7 @@ var segmentAngle = 0;
 var segment = 0;
 
 var totalScore = 0;
+var userScore = 0;
 
 var DART_REF_X = 34;
 var DART_REF_Y = 66;
@@ -437,6 +440,7 @@ function fireDart(tarX, tarY) {
   generateScore();
 
   addScoreA(totalScore);
+  userScore += totalScore;
 
   dartCount--;
   if (dartCount == 0) {
@@ -446,6 +450,36 @@ function fireDart(tarX, tarY) {
   renderIndicator();
 
   doFlightAnim(0);
+
+  if (++counter == 10) {
+    if (userScore >= 120) {
+      Swal.fire({
+        title: "Game Over",
+        text: "You Aimed It right :)",
+        icon: "success",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          counter = 0;
+          userScore = 0;
+          window.location.href = "/";
+        } else {
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "Game Over",
+        text: "You Aimed It wrong :(",
+        icon: "error",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          counter = 0;
+          userScore = 0;
+          window.location.href = "/";
+        } else {
+        }
+      });
+    }
+  }
 }
 
 function generateScore() {
