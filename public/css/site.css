@@ -134,3 +134,12 @@ body {
   position: absolute;
   bottom: 0;
 }
+
+.subtitle {
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  background: #0000006b;
+  padding: 1% 0px;
+  color: white;
+}
