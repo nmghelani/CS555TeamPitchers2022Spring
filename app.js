@@ -9,6 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 app.engine("handlebars", engine({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
+let scores = [];
+
 configRoutes(app);
 app.listen(3000, () => {
   console.log("We've now got a server!");

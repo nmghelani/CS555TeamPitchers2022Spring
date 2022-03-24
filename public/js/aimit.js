@@ -455,7 +455,7 @@ function fireDart(tarX, tarY) {
     if (userScore >= 120) {
       Swal.fire({
         title: "Game Over",
-        text: "You Aimed It right :)",
+        text: "Great Job! Your score is " + userScore,
         icon: "success",
       }).then((result) => {
         if (result.isConfirmed) {
