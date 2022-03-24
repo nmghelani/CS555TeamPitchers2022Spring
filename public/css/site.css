@@ -116,21 +116,110 @@ body {
   transition: transform 0.2s;
 }
 
-.glass {
-  margin: 30px auto;
-  height: 300px;
-  width: 100px;
-  position: relative;
-  border-style: none solid solid solid;
-  border-width: 10px;
-  border-color: lightgray;
-  border-radius: 10px;
+.wateritcontainer{
+  background: rgba( 0, 0, 0, 0.10);
+margin-left:auto;
+margin-right:auto;
+width: 150px;
+border-left: 1px solid #bbb;
+border-right: 1px solid #bbb;
+border-bottom: 1px solid #bbb;
+border-top: 1px solid #ccc;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+padding-left: 5px;
+padding-right: 5px;
+padding-bottom: 30px;
+padding-top: 5px;
 }
 
-.water {
-  width: 100%;
-  height: 90%;
-  background-color: skyblue;
+.glass {
+  background: rgba( 255, 255, 255, 0.50);
+border: 1px solid #bbb;
+border-top: 1px solid #eee;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+width: 140px;
+height: 200px;
+position: relative;
+}
+
+.water{
+  background-color: lightskyblue;
+background-position: top right;
+position: absolute;
+bottom: 0px;
+width: 138px;
+height: 0px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+}
+
+.flex-container {
+  display: flex;
+}
+
+#glassSpace{
+  flex: 2;
+  margin-right: 20px;
+  margin-top: 300px;
+}
+
+.screen{
+  flex:5
+}
+
+.center  {
   position: absolute;
-  bottom: 0;
+  top: 60%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+}
+.monitor {
+  width: 650px;
+  height: 400px;
+  background: white;
+  border: 2px solid black;
+  border-bottom: 30px solid #d8d8d8;
+  border-radius: 10px;
+}
+.monitor:before {
+  content:"";
+  width: 70px;
+  height: 60px;
+  background: #bdbdbd;
+  position: absolute;
+  left: 50%;
+  bottom: -35px;
+  transform: perspective(100px) translateX(-50%) rotateX(25deg) skewX(7deg);
+  z-index: -1;
+  transform-origin: bottom;
+}
+.monitor:after {
+  content:"";
+  width: 140px;
+  height: 15px;
+  background: #bdbdbd;
+  position: absolute;
+  left: 50%;
+  bottom: -50px;
+  transform: translateX(-50%);
+  z-index: -1;
+  transform-origin: bottom;
+} 
+
+.screenwater{
+  margin-bottom:30px;
+  background-color: lightskyblue;
+background-position: top right;
+position: absolute;
+bottom: 0px;
+width: 646px;
+height: 0px;
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
 }
