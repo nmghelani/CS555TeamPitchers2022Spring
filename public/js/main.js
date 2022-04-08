@@ -4,24 +4,20 @@
     title: "Are you frustrated",
     text: "We have got everything to get rid of that fustration.",
     confirmButtonText: "Let's go",
+  }).then(() => {
+    play();
   });
-})(jQuery);
-var myMusic=document.getElementById('music');
-function play() { 
-  myMusic.muted=false;
-  myMusic.play();
-}
-window.onload = (event) => {
-  Swal.fire({
-    title: "Enable Audio",
-    icon: "error",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      play();
-    } else {
+
+  var myMusic = document.getElementById("music");
+  function play() {
+    try {
+      myMusic.muted = false;
+      myMusic.play();
+    } catch (error) {
+      console.log(error);
     }
-  });
-};
+  }
+})(jQuery);
 
 window.onbeforeunload = (event) => {
   if (
