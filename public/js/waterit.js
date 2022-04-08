@@ -1,9 +1,9 @@
 var cursor = $("#glassOfWater");
-$("body").css("background-image", `url(/public/images/office-desk.jpeg)`);
+$("body").css("background-image", `url(/public/images/waterit.jpg)`);
   $(".toggle_theme").change(function (e) { 
     e.preventDefault();
     if(this.checked){
-      $("body").css("background","url(/public/images/office-desk.jpeg) no-repeat center center fixed")
+      $("body").css("background","url(/public/images/waterit.jpg) no-repeat center center fixed")
     }else{
       $("body").css("background","url(/public/images/nature3.jpg) no-repeat center center fixed")
     }
