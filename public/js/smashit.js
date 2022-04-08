@@ -780,4 +780,14 @@
       counter = 1;
     });
   });
+
+    $(".toggle_theme").change(function (e) { 
+    e.preventDefault();
+    if(this.checked){
+      $("body").css("background","url(/public/images/office-desk.jpeg) no-repeat center center fixed")
+    }else{
+      $("body").css("background","url(/public/images/nature4.jpg) no-repeat center center fixed")
+    }
+    $("body").css("background-size","cover")
+  });
 })(jQuery);

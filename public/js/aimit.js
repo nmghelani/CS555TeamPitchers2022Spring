@@ -575,3 +575,15 @@ function renderIndicator() {
   var drt = document.getElementById("darts");
   drt.style.width = width;
 }
+
+(function ($) {
+  $(".toggle_theme").change(function (e) { 
+    e.preventDefault();
+    if(this.checked){
+      $("body").css("background","url(/public/images/image.jpg) no-repeat center center fixed")
+    }else{
+      $("body").css("background","url(/public/images/nature2.jpg) no-repeat center center fixed")
+    }
+    $("body").css("background-size","cover")
+  });
+})(jQuery);

@@ -1,5 +1,14 @@
 var cursor = $("#glassOfWater");
-
+$("body").css("background-image", `url(/public/images/office-desk.jpeg)`);
+  $(".toggle_theme").change(function (e) { 
+    e.preventDefault();
+    if(this.checked){
+      $("body").css("background","url(/public/images/office-desk.jpeg) no-repeat center center fixed")
+    }else{
+      $("body").css("background","url(/public/images/nature3.jpg) no-repeat center center fixed")
+    }
+    $("body").css("background-size","cover")
+  });
 $(document).keyup(function (event) {
   if (event.which === 13 && document.querySelector('.water').clientHeight == 0) {
     $('.water').animate({
@@ -28,7 +37,8 @@ function rotate(elem, degree) {
     h = document.querySelector('.water').clientHeight - 20;
   } else {
     h = 0;
-  } if (document.querySelector('.screenwater').clientHeight + 5 >= 370) {
+  } 
+  if (document.querySelector('.screenwater').clientHeight + 5 >= 370) {
     Swal.fire({
       title: "Game Over",
       text: "You watered the monitor!!!",
@@ -44,8 +54,11 @@ function rotate(elem, degree) {
   $('.water').animate({
     height: h
   }, 500)
-  $('.screenwater').animate({
-    height: document.querySelector('.screenwater').clientHeight + 5
-  }, 500)
+  if(h>0){
+    $('.screenwater').animate({
+      height: document.querySelector('.screenwater').clientHeight + 5
+    }, 500)
+  }
+  
   // document.querySelector('.water').style.height=document.querySelector('.water').offsetHeight-20;
 }
