@@ -4,13 +4,15 @@
   "description": "Relaxing game for stressed employee",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node app.js",
+    "test": "jest"
   },
   "author": "The Pitchers",
   "license": "MIT",
   "dependencies": {
     "express": "^4.17.3",
     "express-handlebars": "^6.0.2",
-    "grunt": "^1.4.1"
+    "grunt": "^1.4.1",
+    "jest": "^27.5.1"
   }
 }
