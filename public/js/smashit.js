@@ -1,6 +1,8 @@
 (function ($) {
   const MAX_COUNTER = 10;
   let counter = 1;
+  var snd = new Audio("public/audio/glass_break.wav");
+
   $("body").css("background-image", `url(/public/images/office-desk.jpeg)`);
   $(document).ready(function () {
     $(".wrapper").width($(".bg-image").width() * 0.97);
@@ -706,6 +708,8 @@
           // clearDrawing($canvas);
           renderCrackEffectAll($canvas, $image, paths, options);
           counter += 1;
+          snd.play();
+          snd.currentTime = 0;
         }
       });
       console.log("init() run");
@@ -781,13 +785,19 @@
     });
   });
 
-    $(".toggle_theme").change(function (e) { 
+  $(".toggle_theme").change(function (e) {
     e.preventDefault();
-    if(this.checked){
-      $("body").css("background","url(/public/images/office-desk.jpeg) no-repeat center center fixed")
-    }else{
-      $("body").css("background","url(/public/images/nature4.jpg) no-repeat center center fixed")
+    if (this.checked) {
+      $("body").css(
+        "background",
+        "url(/public/images/office-desk.jpeg) no-repeat center center fixed"
+      );
+    } else {
+      $("body").css(
+        "background",
+        "url(/public/images/nature4.jpg) no-repeat center center fixed"
+      );
     }
-    $("body").css("background-size","cover")
+    $("body").css("background-size", "cover");
   });
 })(jQuery);
