@@ -19,7 +19,7 @@ function saveHighScore(score, highScores) {
   highScores.push(newScore);
 
   // 2. Sort the list
-  highScores.sort((a, b) => b.score - a.score);
+  highScores.sort((a, b) => a.score - b.score);
 
   // 3. Select new list
   highScores.splice(NO_OF_HIGH_SCORES);

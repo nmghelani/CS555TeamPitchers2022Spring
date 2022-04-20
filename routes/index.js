@@ -15,7 +15,7 @@ module.exports = async (app) => {
   });
   app.get("/scores", async (req, res) => {
     const sortedLeaderboard = leaderBoard.sort((a, b) => {
-      return b.scores - a.scores;
+      return b.score - a.score;
     });
     return res.render("scores", { leaderboard: sortedLeaderboard });
   });
