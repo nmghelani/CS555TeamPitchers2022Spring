@@ -1,4 +1,12 @@
 (function ($) {
+
+  Swal.fire({
+    title: "Instructions",
+    text: "Use mouse click to smash the monitor",
+    confirmButtonText: "Let's go",
+  }).then(() => {
+  });
+
   const MAX_COUNTER = 10;
   let counter = 1;
   var snd = new Audio("public/audio/glass_break.wav");

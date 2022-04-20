@@ -2,6 +2,15 @@ var cursor = $("#glassOfWater");
 var sndFillGlass = new Audio("public/audio/fill_glass.mp3");
 var sndPourWater = new Audio("public/audio/pour_water.mp3");
 
+(function ($) {
+  Swal.fire({
+    title: "Instructions",
+    text: "Click enter to fill the glass with water and Use any key to spill water from glass",
+    confirmButtonText: "Let's go",
+  }).then(() => {
+  });
+})(jQuery);
+
 $("body").css("background-image", `url(/public/images/waterit.jpg)`);
 $(".toggle_theme").change(function (e) {
   e.preventDefault();
@@ -55,7 +64,7 @@ $(document).keyup(function (event) {
     );
 
     const numOctaves = $("feTurbulence").attr("numOctaves");
-    $("feTurbulence").attr("numOctaves", parseInt(numOctaves) + 1);
+    $("feTurbulence").attr("numOctaves", parseInt(numOctaves) + 3);
 
     if ($("feTurbulence").attr("numOctaves") >= 10) {
       Swal.fire({
@@ -94,8 +103,8 @@ function rotate(elem, degree) {
   // For Mozilla browser: e.g. Firefox
   elem.css({ "-moz-transform": "rotate(" + degree + "deg)" });
   var h;
-  if (document.querySelector(".water").clientHeight >= 20) {
-    h = document.querySelector(".water").clientHeight - 20;
+  if (document.querySelector(".water").clientHeight >= 30) {
+    h = document.querySelector(".water").clientHeight - 30;
   } else {
     h = 0;
   }

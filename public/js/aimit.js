@@ -584,6 +584,13 @@ function renderIndicator() {
 }
 
 (function ($) {
+  Swal.fire({
+    title: "Instructions",
+    text: "Use any key to throw dart",
+    confirmButtonText: "Let's go",
+  }).then(() => {
+  });
+
   $(".toggle_theme").change(function (e) {
     e.preventDefault();
     if (this.checked) {
