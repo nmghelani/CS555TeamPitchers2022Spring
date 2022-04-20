@@ -455,20 +455,36 @@ function fireDart(tarX, tarY) {
     if (userScore >= 120) {
       Swal.fire({
         title: "Game Over",
-        text: "Great Job! Your score is " + userScore,
+        text: "Great Job! Your score is " + userScore + ". Enter a username to save your score.",
         icon: "success",
+        input: 'username',
+        inputLabel: 'Your username',
+        inputPlaceholder: 'Enter your username'
       }).then((result) => {
-        if (result.isConfirmed) {
+        if (result.value) {
           counter = 0;
           userScore = 0;
+          $.ajax({
+            url: "/scores.ad",
+            dataType: "html",
+            type: 'POST',
+            data: "pagename="+result.value, 
+            success: function(data){
+                   
+               alert(data);
+
+            }
+   });  //end ajax
           window.location.href = "/";
         } else {
         }
       });
-    } else {
+      
+    }
+     else {
       Swal.fire({
         title: "Game Over",
-        text: "You Aimed It wrong :(",
+        text: "You Got a Bad Score.",
         icon: "error",
       }).then((result) => {
         if (result.isConfirmed) {
