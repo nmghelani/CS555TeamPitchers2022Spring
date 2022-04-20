@@ -459,7 +459,7 @@ function fireDart(tarX, tarY) {
       sndWin.play();
       Swal.fire({
         title: "Game Over",
-        text: "You Aimed It right :)",
+        text: "Great Job! Your score is " + userScore,
         icon: "success",
       }).then((result) => {
         if (result.isConfirmed) {
@@ -504,6 +504,7 @@ function generateScore() {
       if (SEGMENT_NAMES[segmentType] == "tripple") totalScore *= 3; // prostredni pole - tripple
     }
   }
+  
 }
 
 function computeHit(xpos, ypos) {
