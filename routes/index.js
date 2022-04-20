@@ -11,6 +11,9 @@ module.exports = async (app) => {
   app.get("/aimit", async (req, res) => {
     return res.render("aimit");
   });
+  app.get("/scores", async (req, res) => {
+    return res.render("scores");
+  });
   app.use("/*", (req, res) => {
     res.status(404).json({
       status: "Error",
