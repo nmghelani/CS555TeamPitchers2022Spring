@@ -18,18 +18,3 @@
     }
   }
 })(jQuery);
-
-window.onbeforeunload = (event) => {
-  if (
-    !window.confirm(
-      "Getting back to work? I hope we helped you relieving your stress"
-    )
-  ) {
-    const e = event || window.event;
-    e.preventDefault();
-    if (e) {
-      e.returnValue = "";
-    }
-    return "";
-  }
-};
