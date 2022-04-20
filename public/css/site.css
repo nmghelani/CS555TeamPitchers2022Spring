@@ -116,78 +116,82 @@ body {
   transition: transform 0.2s;
 }
 
-.wateritcontainer{
-  background: rgba( 0, 0, 0, 0.10);
-margin-left:auto;
-margin-right:auto;
-width: 150px;
-border-left: 1px solid #bbb;
-border-right: 1px solid #bbb;
-border-bottom: 1px solid #bbb;
-border-top: 1px solid #ccc;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-padding-left: 5px;
-padding-right: 5px;
-padding-bottom: 30px;
-padding-top: 5px;
+.wateritcontainer {
+  background: rgba(0, 0, 0, 0.1);
+  margin-left: auto;
+  margin-right: auto;
+  width: 150px;
+  border-left: 1px solid #bbb;
+  border-right: 1px solid #bbb;
+  border-bottom: 1px solid #bbb;
+  border-top: 1px solid #ccc;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 30px;
+  padding-top: 5px;
 }
 
 .glass {
-  background: rgba( 255, 255, 255, 0.50);
-border: 1px solid #bbb;
-border-top: 1px solid #eee;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
-width: 140px;
-height: 200px;
-position: relative;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #bbb;
+  border-top: 1px solid #eee;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width: 140px;
+  height: 200px;
+  position: relative;
 }
 
-.water{
+.water {
   background-color: lightskyblue;
-background-position: top right;
-position: absolute;
-bottom: 0px;
-width: 138px;
-height: 0px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+  background-position: top right;
+  position: absolute;
+  bottom: 0px;
+  width: 138px;
+  height: 0px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .flex-container {
   display: flex;
 }
 
-#glassSpace{
+#glassSpace {
   flex: 5;
   margin-right: 20px;
   margin-top: 300px;
 }
 
-.screen{
-  flex:5
+.screen {
+  flex: 5;
 }
 
-.center  {
+.center {
   position: absolute;
   top: 60%;
   left: 60%;
   transform: translate(-50%, -50%);
 }
+
 .monitor {
   width: 650px;
   height: 400px;
-  background: white;
+  background: url("/public/images/xp_wallpaper.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0% 60%;
   border: 2px solid black;
   border-bottom: 30px solid black;
   border-radius: 10px;
 }
 .monitor:before {
-  content:"";
+  content: "";
   width: 70px;
   height: 60px;
   background: black;
@@ -199,7 +203,7 @@ border-radius: 10px;
   transform-origin: bottom;
 }
 .monitor:after {
-  content:"";
+  content: "";
   width: 140px;
   height: 15px;
   background: black;
@@ -209,19 +213,24 @@ border-radius: 10px;
   transform: translateX(-50%);
   z-index: -1;
   transform-origin: bottom;
-} 
+}
 
-.screenwater{
-  margin-bottom:30px;
-  background-color: lightskyblue;
-background-position: top right;
-position: absolute;
-bottom: 0px;
-width: 646px;
-height: 0px;
--webkit-border-radius: 10px;
--moz-border-radius: 10px;
-border-radius: 10px;
+.screenwater {
+  margin-bottom: 35px;
+  background-position: top right;
+  background-color: #2196f3;
+  position: absolute;
+  bottom: 0px;
+  width: 640px;
+  height: 90%;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  background: url("/public/images/xp_wallpaper.jpeg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 0% 60%;
+  filter: url("#turbulence");
 }
 
 .switch {
@@ -247,8 +256,8 @@ border-radius: 10px;
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -259,16 +268,16 @@ border-radius: 10px;
   left: 4px;
   bottom: 4px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #2196f3;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196f3;
 }
 
 input:checked + .slider:before {
@@ -285,6 +294,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+<<<<<<< HEAD
 
 .seescores {
   position: absolute;
@@ -293,3 +303,5 @@ input:checked + .slider:before {
   text-align: center;
   color: #fff;
 }
+=======
+>>>>>>> 141f9c8a1cc70ab64334cfd1053729b8d4380b95

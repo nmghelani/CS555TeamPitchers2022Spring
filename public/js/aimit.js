@@ -7,6 +7,9 @@
   $("#gameBox").css("left", ($(window).width() - $("#gameBox").width()) / 2);
 })(jQuery);
 
+var snd = new Audio("public/audio/dart.mp3");
+var sndWin = new Audio("public/audio/game_over_win.mp3");
+var sndLoose = new Audio("public/audio/game_over_loose.mp3");
 var SHOW_PROGRESS_BAR = 1; // 1-zobrazuje se, 0- nezobrazuje se
 var WIND_ACTIVE = 1; // 1-vitr je aktivni 0-bezvetri
 
@@ -453,6 +456,7 @@ function fireDart(tarX, tarY) {
 
   if (++counter == 10) {
     if (userScore >= 120) {
+      sndWin.play();
       Swal.fire({
         title: "Game Over",
         text: "Great Job! Your score is " + userScore + ". Enter a username to save your score.",
@@ -479,9 +483,8 @@ function fireDart(tarX, tarY) {
         } else {
         }
       });
-      
-    }
-     else {
+    } else {
+      sndLoose.play();
       Swal.fire({
         title: "Game Over",
         text: "You Got a Bad Score.",
@@ -495,6 +498,8 @@ function fireDart(tarX, tarY) {
         }
       });
     }
+  } else {
+    snd.play();
   }
 }
 
@@ -594,13 +599,26 @@ function renderIndicator() {
 }
 
 (function ($) {
-  $(".toggle_theme").change(function (e) { 
+  Swal.fire({
+    title: "Instructions",
+    text: "Use any key to throw dart",
+    confirmButtonText: "Let's go",
+  }).then(() => {
+  });
+
+  $(".toggle_theme").change(function (e) {
     e.preventDefault();
-    if(this.checked){
-      $("body").css("background","url(/public/images/image.jpg) no-repeat center center fixed")
-    }else{
-      $("body").css("background","url(/public/images/nature2.jpg) no-repeat center center fixed")
+    if (this.checked) {
+      $("body").css(
+        "background",
+        "url(/public/images/image.jpg) no-repeat center center fixed"
+      );
+    } else {
+      $("body").css(
+        "background",
+        "url(/public/images/nature2.jpg) no-repeat center center fixed"
+      );
     }
-    $("body").css("background-size","cover")
+    $("body").css("background-size", "cover");
   });
 })(jQuery);
