@@ -469,10 +469,11 @@ function fireDart(tarX, tarY) {
           counter = 0;
           userScore = 0;
           $.ajax({
-            url: "/scores.ad",
-            dataType: "html",
+      
+            url: "/scores/add",
+            dataType: "application/json",
             type: 'POST',
-            data: "pagename="+result.value, 
+            data: { username: result.value, score: userScore}, 
             success: function(data){
                    
                alert(data);
