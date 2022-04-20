@@ -1,45 +1,64 @@
-(function ($) {
-  $("body").css({ "background-image": "none" });
-
-  $('.glass').click(function(){
+var cursor = $("#glassOfWater");
+$("body").css("background-image", `url(/public/images/waterit.jpg)`);
+  $(".toggle_theme").change(function (e) { 
+    e.preventDefault();
+    if(this.checked){
+      $("body").css("background","url(/public/images/waterit.jpg) no-repeat center center fixed")
+    }else{
+      $("body").css("background","url(/public/images/nature3.jpg) no-repeat center center fixed")
+    }
+    $("body").css("background-size","cover")
+  });
+$(document).keyup(function (event) {
+  if (event.which === 13 && document.querySelector('.water').clientHeight == 0) {
     $('.water').animate({
       height: '90%'
-  }, 1000)
-  })
+    }, 1000)
+    cursor.css({ WebkitTransform: "rotate(0deg)" });
+    cursor.css({ "-moz-transform": "rotate(0deg)" });
+  } else {
+    rotate(cursor, 0);
+  }
+});
 
-  var cursor = $(".cursor");
+$(document).keydown(function (event) {
+  if (document.querySelector('.water').offsetHeight <= 178 && document.querySelector('.water').offsetHeight > 0) {
+    rotate(cursor, 90);
+  }
+});
 
-    $(window)
-      .mouseleave(function () {
-        cursor.css({
-          opacity: "0",
-        });
-      })
-      .mouseenter(function () {
-        cursor.css({
-          opacity: "1",
-        });
-      });
-
-    $(window)
-      .mousedown(function () {
-        rotate(cursor, 90);
-      })
-      .mouseup(function () {
-        rotate(cursor, 0);
-      });
-
-    function rotate(elem, degree) {
-      // For webkit browsers: e.g. Chrome
-      elem.css({ WebkitTransform: "rotate(" + degree + "deg)" });
-      // For Mozilla browser: e.g. Firefox
-      elem.css({ "-moz-transform": "rotate(" + degree + "deg)" });
-    }
-
-    $(window).mousemove(function (e) {
-      cursor.css({
-        top: e.clientY - cursor.height() * 0.42,
-        left: e.clientX - cursor.width() * 0.12,
-      });
+function rotate(elem, degree) {
+  // For webkit browsers: e.g. Chrome
+  elem.css({ WebkitTransform: "rotate(" + degree + "deg)" });
+  // For Mozilla browser: e.g. Firefox
+  elem.css({ "-moz-transform": "rotate(" + degree + "deg)" });
+  var h;
+  if (document.querySelector('.water').clientHeight >= 20) {
+    h = document.querySelector('.water').clientHeight - 20;
+  } else {
+    h = 0;
+  } 
+  if (document.querySelector('.screenwater').clientHeight + 5 >= 370) {
+    Swal.fire({
+      title: "Game Over",
+      text: "You watered the monitor!!!",
+      icon: "success",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        counter = 1;
+        window.location.href = "/";
+      } else {
+      }
     });
-})(jQuery);
+  }
+  $('.water').animate({
+    height: h
+  }, 500)
+  if(h>0){
+    $('.screenwater').animate({
+      height: document.querySelector('.screenwater').clientHeight + 5
+    }, 500)
+  }
+  
+  // document.querySelector('.water').style.height=document.querySelector('.water').offsetHeight-20;
+}
