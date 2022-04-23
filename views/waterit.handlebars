@@ -10,28 +10,25 @@
 <div class="cursor">
 </div>
 <div class="flex-container">
-    <div class="flex-child" id="glassSpace">
-        <div id="glassOfWater" class="wateritcontainer">
-            <div class="glass">
-                <div class="water"></div>
+    <div class="flex-child screen">
+        <div class="center">
+            <div>
+                <img class="laptop-mask" src="/public/images/laptop-mask.jpeg">
+                <img class="laptop" src="/public/images/laptop.png">
             </div>
         </div>
     </div>
-    <div class="flex-child screen">
-        <div class="center">
-            <div class="monitor">
-                <div class="content">
-                    <div class="screenwater"></div>
-                </div>
-            </div>
-        </div>
+</div>
+<div id="glassOfWater" class="wateritcontainer cursor">
+    <div class="glass">
+        <div class="water"></div>
     </div>
 </div>
 
 <svg>
     <filter id="turbulence" x="0" y="0" width="100%" height="100%">
-        <feTurbulence id="sea-filter" numOctaves="0" seed="4" baseFrequency="0.01 0.005"></feTurbulence>
-        <feDisplacementMap scale="20" in="SourceGraphic"></feDisplacementMap>
+        <feTurbulence id="sea-filter" numOctaves="2" seed="4" baseFrequency="0.01 0.005"></feTurbulence>
+        <feDisplacementMap scale="0" in="SourceGraphic"></feDisplacementMap>
         <animate id="animation" xlink:href="#sea-filter" attributeName="baseFrequency" dur="60s" 
         keyTimes="0;0.5;1" values="0.02 0.06;0.04 0.08;0.02 0.06" repeatCount="indefinite"/>
     </filter>

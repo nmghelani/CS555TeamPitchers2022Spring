@@ -342,6 +342,9 @@ function startVerticalCursorMovement() {
 }
 
 function stopVerticalCursorMovement() {
+  if (Swal.isVisible()) {
+    return;
+  }
   firing = 0;
 
   clearInterval(cursorTimerId);
@@ -459,28 +462,27 @@ function fireDart(tarX, tarY) {
       sndWin.play();
       Swal.fire({
         title: "Game Over",
-        text: "Great Job! Your score is " + userScore + ". Enter a username to save your score.",
+        text:
+          "Great Job! Your score is " +
+          userScore +
+          ". Enter a username to save your score.",
         icon: "success",
-        input: 'username',
-        inputLabel: 'Your username',
-        inputPlaceholder: 'Enter your username'
+        input: "text",
+        inputLabel: "Your username",
+        inputPlaceholder: "Enter your username",
       }).then((result) => {
         if (result.value) {
           counter = 0;
-          userScore = 0;
           $.ajax({
-      
             url: "/scores/add",
             dataType: "application/json",
-            type: 'POST',
-            data: { username: result.value, score: userScore}, 
-            success: function(data){
-                   
-               alert(data);
-
-            }
-   });  //end ajax
-          window.location.href = "/";
+            type: "POST",
+            data: { username: result.value, score: userScore },
+            complete: () => {
+              userScore = 0;
+            },
+          }); //end ajax
+          window.location.href = "/scores";
         } else {
         }
       });
@@ -488,7 +490,7 @@ function fireDart(tarX, tarY) {
       sndLoose.play();
       Swal.fire({
         title: "Game Over",
-        text: "You Got a Bad Score.",
+        text: "Oh no! You failed to aim the boss",
         icon: "error",
       }).then((result) => {
         if (result.isConfirmed) {
@@ -519,7 +521,6 @@ function generateScore() {
       if (SEGMENT_NAMES[segmentType] == "tripple") totalScore *= 3; // prostredni pole - tripple
     }
   }
-  
 }
 
 function computeHit(xpos, ypos) {
@@ -604,8 +605,7 @@ function renderIndicator() {
     title: "Instructions",
     text: "Use any key to throw dart",
     confirmButtonText: "Let's go",
-  }).then(() => {
-  });
+  }).then(() => {});
 
   $(".toggle_theme").change(function (e) {
     e.preventDefault();
