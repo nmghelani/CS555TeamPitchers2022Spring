@@ -1,0 +1,13 @@
+<body>
+    <header>
+        <h1>High Scores</h1>
+    </header>
+    <div>
+        <ol id="highScores">
+            {{#each leaderboard}}
+                <li>{{username}}: {{score}}</li>
+            {{/each}}
+        </ol>
+    </div>
+</body>
+<script src="/public/js/scores.js"></script>
